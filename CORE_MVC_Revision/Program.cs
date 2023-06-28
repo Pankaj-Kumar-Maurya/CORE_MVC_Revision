@@ -1,4 +1,8 @@
+using CORE_MVC_Revision.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<DataBaseContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -22,6 +26,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Student}/{action=Index}/{id?}");
 
 app.Run();
