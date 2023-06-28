@@ -13,9 +13,9 @@ namespace CORE_MVC_Revision.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            return View();
+            return View(id);
         }
 
         public IActionResult Privacy()
